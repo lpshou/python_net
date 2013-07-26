@@ -19,7 +19,7 @@ tcpSerSock.listen(5)
 while True:
     print 'waiting for connection...'
     tcpCliSock,addr = tcpSerSock.accept()
-    print '...connect from:',addr
+    print 'connect from:',addr
     
     while True:
         data = tcpCliSock.recv(BUFSIZ)
@@ -27,7 +27,7 @@ while True:
             break
         tcpCliSock.send('[%s]%s' % (ctime(),data))
         
-        tcpCliSock.close()
+    tcpCliSock.close()
 tcpSerSock.close()
 
 

@@ -3,10 +3,10 @@ Created on 2013-7-24
 
 @author: lpshou.liu
 '''
-#！/usr/bin/env python
+#!usr/bin/env python
 from socket import *
 
-HOST=' localhost '
+HOST='localhost'
 PORT = 21567
 BUFSIZ = 1024
 ADDR = (HOST,PORT)
