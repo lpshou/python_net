@@ -3,12 +3,24 @@ Created on 2013-7-24
 
 @author: lpshou.liu
 '''
-#one comment
-#userName = raw_input('ENTER YOUR NAME:')
-#filename = raw_input('enter file name:')
-#!/usr/bin/env python
-str1 = 'hello world'
-str2 = 134
-print id(str2)
-print
-print type(str2)
+#！/usr/bin/env python
+from socket import *
+
+HOST=' localhost '
+PORT = 21567
+BUFSIZ = 1024
+ADDR = (HOST,PORT)
+
+tcpCliSock = socket(AF_INET,SOCK_STREAM)
+tcpCliSock.connect(ADDR)
+
+while True:
+    data = raw_input(': ')
+    if not data:
+        break
+    tcpCliSock.send(data)
+    data = tcpCliSock.recv(BUFSIZ)
+    if not data:
+        break
+    print data
+tcpCliSock.close()
